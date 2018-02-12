@@ -10,23 +10,53 @@ public class QueenBoard{
     public QueenBoard(int n){
 	board = new board[n][n];
 	size = n;
+	
+	for(int j = 0; j < size; j++){
+	    for(int i = 0; i < size; i++){
+		board[j][i] == 0;
+	    }
+	}
     }
 
     //private methods
     private boolean addQueen(int r, int c){
 	board[r][c] == -1;
 
-	for(int j = r; j < size; j++){
-	    for(int i = c; i < size; i++){
-		board[j][i] += 1;
-	    }
+	for(int n = c+1; n < size; n++){
+	    board[r][n] += 1;
 	}
+
+	int i = 1;
+	while(r+i < size && c+i < size){
+	    board[r+i][c+i] += 1;
+	}
+	while(r-i < size && c+i < size){
+	    board[r-i][c+i] += 1;
+	}
+	
+	//for(int j = r; j < size; j++){
+	//    for(int i = c; i < size; i++){
+	//	board[j][i] += 1;
+	//    }
+	//}
 	
     }
     //helper methods
     
     private boolean removeQueen(int r, int c){
+	board[r][c] == 0;
 
+	for(int n = c; n < size; n++){
+	    board[r][n] -= 1;
+	}
+
+	int i = 1;
+	while(r+i < size && c+i < size){
+	    board[r+i][c+i] -= 1;
+	}
+	while(r-i < size && c+i < size){
+	    board[r-i][c+i] += 1;
+	}
     }
     //helper methods
 
@@ -49,17 +79,22 @@ public class QueenBoard{
      *@throws IllegalStateException when the board starts with any non-zero value
     */
     public boolean solve(){
-	return solveHelp(board, size);  
+	return solveHelp(0);  
     }
-    public boolean solveHelp(int[][] board, int size){
+    public boolean solveHelp(int col){
 	//2x2 and 3x3 are unsolveable
-	if(size == 2 || size == 3){
+        if(size == 2 || size == 3){
 	    for(int j = 0; j < size; j++){
 		for(int i = 0; i < size; i++){
 		    board[j][i] == 0;
 		}
 	    }
+	    return false;
 	}
+	
+
+	
+	
 
 	
     }
