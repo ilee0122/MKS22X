@@ -32,7 +32,8 @@ public class Maze{
 	    int a = 0;
 
 	    String line = inf.nextLine();
-	    maze[a][] = line.toCharArray();
+	    char[a][0] maze = line.toCharArray();
+	    //maze = line.toCharArray();
 
 	    a++;
 	}
