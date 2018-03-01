@@ -30,9 +30,11 @@ public class Maze{
 	Scanner inf = new Scanner(text);
         while(inf.hasNextLine()){
 	    int a = 0;
-
 	    String line = inf.nextLine();
-	    char[a][0] maze = line.toCharArray();
+	    
+	    for(int i = 0; i < line.length(); i++){
+		maze[a][i] = line.toCharArray();
+	    }
 	    //maze = line.toCharArray();
 
 	    a++;
@@ -46,31 +48,22 @@ public class Maze{
          }
          catch (InterruptedException e) {
          }
-     }
+    }
 
 
     public void setAnimate(boolean b){
-
         animate = b;
-
     }
-
 
     public void clearTerminal(){
-
         //erase terminal, go to top left of screen.
-
         System.out.println("\033[2J\033[1;1H");
-
     }
-
 
 
     /*Wrapper Solve Function returns the helper function
-
       Note the helper function has the same name, but different parameters.
       Since the constructor exits when the file is not found or is missing an E or S, we can assume it exists.
-
     */
     public int solve(){
 
@@ -82,8 +75,10 @@ public class Maze{
 
             //and start solving at the location of the s.
 
+	
             //return solve(???,???);
 
+	
     }
 
     /*
@@ -93,7 +88,6 @@ public class Maze{
 
       Returns the number of @ symbols from S to E when the maze is solved,
       Returns -1 when the maze has no solution.
-
 
       Postcondition:
 
