@@ -2,6 +2,31 @@ import java.util.*;
 
 public class QuickSelect{
 
+    public static int partition (int[] data, int start, int end){
+	Random rand = new Random();
+
+	//randomize
+	int n = rand.nextInt(end - start + 1) + start;
+
+	int pivot = data[n];
+	swap (data, start, n);
+	
+	int s = start + 1;
+	int e = end;
+	
+	while (s <= e) {
+	    if (data[s] < pivot) {
+		s++;
+	    }
+	    else if (data[s] > pivot) {
+		swap(data, s, e);
+		e--;
+	    }
+	}
+	
+	swap(data, start, e);
+	return e;
+    }
 
     public static void swap (int[] arr, int n, int m){
 	int temp = arr[n];
@@ -23,5 +48,6 @@ public class QuickSelect{
 	
 	return str;
     }
+
 
 }
