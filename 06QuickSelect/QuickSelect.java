@@ -49,5 +49,9 @@ public class QuickSelect{
 	return str;
     }
 
-
+    public static void main(String[]args){
+	//int[] x = new int[] {17, 61, 67, 47, 93 ,12, 20, 4, 44, 68};
+	//System.out.println(partition(x, 0, 9));
+	//System.out.println(toString(x));
+    }
 }
