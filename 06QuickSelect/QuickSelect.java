@@ -9,4 +9,19 @@ public class QuickSelect{
 	arr[m] = temp;
     }
 
+    public static String toString(int[] data){
+	String str = "{";
+	
+	for (int i = 0; i < data.length; i ++){
+	    str += data[i];
+	    if (i < data.length -1){
+		str += ", ";
+	    }
+	}
+	
+	str += "}";
+	
+	return str;
+    }
+
 }
