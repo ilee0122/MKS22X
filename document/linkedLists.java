@@ -1,3 +1,5 @@
+//https://docs.oracle.com/javase/8/docs/api/java/util/List.html
+
 public class MyLinkedList implements Iterable<String>{
 
     //field variables
@@ -6,6 +8,7 @@ public class MyLinkedList implements Iterable<String>{
 
     private class MyLinkedListIterator implements Iterator<String>{
 
+	
 
     }
     
@@ -46,7 +49,9 @@ public class MyLinkedList implements Iterable<String>{
     }
 
     //constructor
-    public MyLinkedList{} //makes an empty list
+    public MyLinkedList{//makes an empty list
+
+    } 
 
     
     //methods
