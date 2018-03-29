@@ -1,16 +1,16 @@
-public class linkedLists implements Iterable<String>{
+public class MyLinkedList implements Iterable<String>{
 
     //field variables
     private Node start, end;
     private int size;
 
-    private class linkedListsIterator implements Iterator<String>{
+    private class MyLinkedListIterator implements Iterator<String>{
 
 
     }
     
     public Iterator<String> iterator(){
-	return new linkedListsIterator(this);
+	return new MyLinkedListIterator(this);
     }
     
     private class Node{
@@ -46,28 +46,33 @@ public class linkedLists implements Iterable<String>{
     }
 
     //constructor
-    public linkedLists{} //makes an empty list
+    public MyLinkedList{} //makes an empty list
 
     
     //methods
     //
     //method: add
 
-    public boolean add(int value){} //adds the value to end
-    public void add(int index, int value){}
+    public boolean add(Integer newData){} //adds the value to end
+    public void add(int index, Integer value){}
 
     //method: remove
 
-    public int remove(int index){}
+    public boolean remove(Integer value){}
+    public boolean remove(int index){}
 
-    //method: indexOf
+    //method: indexOf and clear
 
-    public int indexOf(int value){} //returns the index of the 1st occurence of the value in the linked listx
+    public int indexOf(int value){} //returns the index of the 1st occurence of the value in the linked list
+
+    public void clear(){}
     
     //method: get & set
 
-    public int set(int index, int value){}
-    public int get(int index){}
+    private Node getNode(int index){}
+    
+    public Integer set(int index, int value){}
+    public Integer get(int index){}
 
     //method: size
 
