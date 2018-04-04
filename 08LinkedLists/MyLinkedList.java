@@ -117,9 +117,51 @@ public class MyLinkedList{
 	return 1;
     }
 
-    public boolean add(Integer newData){}
+    public boolean add(Integer newData){
+	if (size() == 0){
+	    start = new Node(newData);
+	    end = start;
+	}
+	else {
+	    Node last = new Node(newData);
+	    end.setNext(last);
+	    last.setPrev(end);
+	    end = last;
+	}
+	size = size + 1;
+	return true;
+    }
 
-    public void add(int index, Integer value){}
+    public void add(int index, Integer value){
+	if (index < 0 || index > size()){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	int c = 0;
+	Node current = start;
+	Node temp = new Node(value);
+	while (c <= index){
+	    if (c == index){
+		if (index == 0){
+		    temp.setNext(current);
+		    current.setPrev(temp);
+		    start = temp;
+		}
+		else if (index == (size() - 1)){
+		    end.setNext(temp);
+		    temp.setPrev(end);
+		    end = temp;
+		}
+		else {
+		    temp.setPrev(current);
+		    temp.setNext(current.getNext());
+		    current.setNext(temp);
+		}
+		size = size + 1;
+	    }
+	    c = c + 1;
+	    current = current.getNext();
+    }
 
     public Integer remove(int index){}
 
