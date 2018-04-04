@@ -46,7 +46,18 @@ public class MyLinkedList{
 	size = 0; //empty list
     }
 
-    private Node getNode(int index){}
+    private Node getNode(int index){
+	Node current = start;
+	int c = 0;
+	while (current != null){
+	    if (c == index){
+		return current;
+	    }
+	    c = c + 1;
+	    current = current.getNext();
+	}
+	return current;
+    }
 
     public int size(){
 	return size;
@@ -56,11 +67,55 @@ public class MyLinkedList{
 	size = 0;
     }
 
-    public Integer get(int index){}
+    public Integer get(int index){
+	if (index < 0 || index >= size()){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	int c = -1;
+	Node current = start;
+	while (current != null){
+	    c = c + 1;
+	    if (c == index){
+		return current.getValue();
+	    }
+	    current = current.getNext();
+	}
+	return 1;
+    }
 
-    public Integer set(int index, Integer value){}
+    public Integer set(int index, Integer value){
+	if (index < 0 || index > size()){
+	    throw new IndexOutOfBoundsException();
+	}
+	
+	int c = -1;
+	int oldValue = 0;
+	Node current = start;
+	while (current != null){
+	    c = c + 1;
+	    if (c == index){
+		oldValue = current.getValue();
+		current.setValue(value);
+		return oldValue;
+	    }
+	    current = current.getNext();
+	}
+	return 1;
+    }
 
-    public int indexOf(Integer value){}
+    public int indexOf(Integer value){
+	int c = 0;
+	Node current = start;
+	while (current != null){
+	    if (current.getValue().equals(value)){
+		return CT;
+	    }
+	    c = c + 1;
+	    current = current.getNext();
+	}
+	return 1;
+    }
 
     public boolean add(Integer newData){}
 
