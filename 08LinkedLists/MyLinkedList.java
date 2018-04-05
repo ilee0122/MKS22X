@@ -163,9 +163,56 @@ public class MyLinkedList{
 	    current = current.getNext();
     }
 
-    public Integer remove(int index){}
+    public Integer remove(int index){
+	if (index < 0 || index >= size()){
+	    throw new IndexOutOfBoundsException();
+	}
 
-    public boolean remove(Integer value){}
+	int c = 0;
+	Node current = getNode(index);
+	while (c <= index){
+	    if (c == index){
+		if (index == 0){
+		    start = current.getNext();
+		}
+		else if (index == (size() - 1)){
+		    end = current.getPrev();
+		    end.setNext(null);
+		}
+		else {
+		    current.getPrev().setNext(current.getNext());
+		    current.getNext().setPrev(current.getPrev());
+		}
+		size = size - 1;
+		return current;
+	    }
+	    c = c + 1;
+	}
+	return -1;
+    }
+
+    public boolean remove(Integer value){
+	Node current = start;
+	while (current != null){
+	    if (current.getValue().equals(value)){
+		if (current.equals(start)){
+		    start = current.getNext();
+		}
+		else if (current.equals(end)){
+		    end = current.getPrev();
+		    end.setNext(null);
+		}
+		else {
+		    current.getPrev().setNext(current.getNext());
+		    current.getNext().setPrev(current.getPrev());
+		}
+		size = size - 1;
+		return true;
+	    }
+	    current = current.getNext();
+	}
+	return false;
+    }
 
     public String toString(){
 	if (size() == 0){
