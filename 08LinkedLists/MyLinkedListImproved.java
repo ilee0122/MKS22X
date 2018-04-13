@@ -1,4 +1,4 @@
-public class MyLinkedListImproved<T>{
+public class MyLinkedListImproved<T> implements Iterator<T>{
 
     private class Node{
 
@@ -90,7 +90,7 @@ public class MyLinkedListImproved<T>{
 	if (index < 0 || index > size()){
 	    throw new IndexOutOfBoundsException();
 	}
-	Integer temp = getNode(index).getData();
+	T temp = getNode(index).getData();
 	getNode(index).setData(value);
 	return temp;
     }
@@ -187,6 +187,12 @@ public class MyLinkedListImproved<T>{
 	System.out.println(m);
 
     }
+
+
+
+
+
+
     
     //Driver from Crystal Wang
     /*
