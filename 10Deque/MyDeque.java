@@ -1,5 +1,12 @@
+//circular array based representation
+
 public class MyDeque{
 
+    //field variables
+    public int size;
+
+
+    
     public MyDeque(){}
 
     public MyDeque(int initialCapacity){
@@ -55,7 +62,12 @@ public class MyDeque{
 	}
     }
 
-    
+    public void resize(){
+	//doubles capacity
+
+	//where to put the values?
+  
+    }
     
 
 
