@@ -51,8 +51,19 @@ public class ExpressionTree{
     /*return the expression as an infix notation string with parenthesis*/
     /* The sample tree would be: "( 3 + (2 * 10))"     */
     public String toString(){
-	/*you are to write this method*/
-	return "";
+
+	String infix = "";
+
+	while(isOp()){
+	    getLeft();
+	}
+	infix += "(" + getLeft();
+
+	
+	    
+
+	
+	return infix;
     }
   
     /*return the expression as a postfix notation string without parenthesis*/
@@ -82,15 +93,58 @@ public class ExpressionTree{
 	    //recursion
 	    return apply(getOp(), a, b);
 	}
-	
-	return 0.0;
     }
 
     /*use the correct operator on both a and b, and return that value*/
     private double apply(char op, double a, double b){
-	/*you are to write this method*/
+        //Step 1: Double a
+
+	//Step 2: Integer.parseInt() with op
+
+	//Step 3: Double b
+
+	//Step 4: Perform the operation; return answer
 	return 0.0;
 
     }
 
+
+    //MAIN
+
+    public static void main(String[] args){
+	//ugly main sorry!
+	ExpressionTree a = new ExpressionTree(4.0);
+	ExpressionTree b = new ExpressionTree(2.0);
+
+	ExpressionTree c = new ExpressionTree('+',a,b);
+	System.out.println(c);
+	System.out.println(c.toStringPostfix());
+	System.out.println(c.toStringPrefix());
+	System.out.println(c.evaluate());//6.0
+
+
+	ExpressionTree d = new ExpressionTree('*',c,new ExpressionTree(3.5));
+	System.out.println(d);
+	System.out.println(d.toStringPostfix());
+	System.out.println(d.toStringPrefix());
+	System.out.println(d.evaluate());//21
+
+	ExpressionTree ex = new ExpressionTree('-',d,new ExpressionTree(1.0));
+	System.out.println(ex);
+	System.out.println(ex.toStringPostfix());
+	System.out.println(ex.toStringPrefix());
+	System.out.println(ex.evaluate());//20
+
+	ex = new ExpressionTree('+',new ExpressionTree(1.0),ex);
+	System.out.println(ex);
+	System.out.println(ex.toStringPostfix());
+	System.out.println(ex.toStringPrefix());
+	System.out.println(ex.evaluate());//21
+
+	ex = new ExpressionTree('/',ex,new ExpressionTree(2.0));
+	System.out.println(ex);
+	System.out.println(ex.toStringPostfix());
+	System.out.println(ex.toStringPrefix());
+	System.out.println(ex.evaluate());//10.5   
+    }
 }
