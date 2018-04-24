@@ -72,9 +72,18 @@ public class ExpressionTree{
   
     /*return the value of the specified expression tree*/
     public double evaluate(){
+	//base case
+	if(isValue()){
+	    return getValue();
+	}else{
+	    double a = getLeft().evaluate();
+	    double b = getRight().evaluate();
+
+	    //recursion
+	    return apply(getOp(), a, b);
+	}
 	
 	return 0.0;
-
     }
 
     /*use the correct operator on both a and b, and return that value*/
